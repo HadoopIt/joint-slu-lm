@@ -26,8 +26,21 @@ python run_rnn_joint.py --data_dir $data_dir \
 
 **Reference**
 
-[1] Bing Liu, Ian Lane, "Joint Online Spoken Language Understanding and Language Modeling with Recurrent Neural Networks", (to appear) in SIGdial, 2016 (<a href="http://speech.sv.cmu.edu/publications/liu-sigdial-2016.pdf" target="_blank">PDF</a>)
+[1] Bing Liu, Ian Lane, "Joint Online Spoken Language Understanding and Language Modeling with Recurrent Neural Networks", (to appear) in SIGdial, 2016 (<a href="http://www.sigdial.org/workshops/conference17/proceedings/pdf/SIGDIAL03.pdf" target="_blank">PDF</a>)
 
+```
+@InProceedings{liu-lane:2016:SIGDIAL,
+  author    = {Liu, Bing  and  Lane, Ian},
+  title     = {Joint Online Spoken Language Understanding and Language Modeling With Recurrent Neural Networks},
+  booktitle = {Proceedings of the 17th Annual Meeting of the Special Interest Group on Discourse and Dialogue},
+  month     = {September},
+  year      = {2016},
+  address   = {Los Angeles},
+  publisher = {Association for Computational Linguistics},
+  pages     = {22--30},
+  url       = {http://www.aclweb.org/anthology/W16-3603}
+}
+```
 
 **Contact** 
 
