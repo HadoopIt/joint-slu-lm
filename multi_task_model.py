@@ -48,7 +48,7 @@ class MultiTaskModel(object):
         the model construction is independent of batch_size, so it can be
         changed after initialization if this is convenient, e.g., for decoding.
       dropout_keep_prob: prob to keep during dropout
-      use_lstm: whether to use lstm, default is to use GRU.
+      use_lstm: use lstm cell
       lm_cost_weight: lm error weight in linear interpolation os multi-task model errors
       DNN_at_output: use DNN at the output layer of each task
       dnn_hidden_layer_size: DNN hidden layer size
@@ -72,7 +72,7 @@ class MultiTaskModel(object):
     single_cell = tf.nn.rnn_cell.GRUCell(size)
     if use_lstm:
       # use the customized rnn_cell, --> added trainable option in RNN
-      single_cell = tf.nn.rnn_cell.BasicLSTMCell(size)
+      single_cell = tf.nn.rnn_cell.BasicLSTMCell(size, state_is_tuple=True)
     cell = single_cell
     if num_layers > 1:
       cell = tf.nn.rnn_cell.MultiRNNCell([single_cell] * num_layers)
@@ -158,9 +158,9 @@ class MultiTaskModel(object):
             
     # Gradients and SGD update operation for training the model.
     params = tf.trainable_variables()
-    for i in range(len(tf.trainable_variables())):
-      print (tf.trainable_variables()[i].name)
     if not forward_only:
+      for i in range(len(params)):
+        print (params[i].name)
       opt = tf.train.AdamOptimizer()
       gradients = tf.gradients([self.tagging_loss, self.classification_loss, self.lm_loss_withRegularizers*self.lm_cost_weight], params)
         

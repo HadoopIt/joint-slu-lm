@@ -14,6 +14,7 @@ from tensorflow.python.ops import array_ops
 from tensorflow.python.ops import embedding_ops
 from tensorflow.python.ops import math_ops
 from tensorflow.python.ops import rnn_cell
+from tensorflow.python.ops import rnn
 from tensorflow.python.ops import variable_scope
 from tensorflow.python.ops import init_ops
 from tensorflow.python.framework import tensor_shape
@@ -233,9 +234,9 @@ def rnn_with_output_feedback(cell, inputs,
     
     # pylint: enable=cell-var-from-loop
     if sequence_length is not None:
-      (output_fw, state) = _rnn_step(
+      (output_fw, state) = rnn._rnn_step(
           time, sequence_length, min_sequence_length, max_sequence_length,
-          zero_output, state, call_cell)
+          zero_output, state, call_cell, cell.state_size)
     else:
       (output_fw, state) = call_cell()
 
