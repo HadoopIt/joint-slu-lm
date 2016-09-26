@@ -45,7 +45,7 @@ tf.app.flags.DEFINE_integer("max_train_data_size", 0,
                             "Limit on the size of training data (0: no limit).")
 tf.app.flags.DEFINE_integer("steps_per_checkpoint", 300,
                             "How many training steps to do per checkpoint.")
-tf.app.flags.DEFINE_integer("max_training_steps", 10000,
+tf.app.flags.DEFINE_integer("max_training_steps", 20000,
                             "Max training steps.")
 tf.app.flags.DEFINE_boolean("decode", False,
                             "Set to True for interactive decoding.")
