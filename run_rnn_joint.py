@@ -243,7 +243,7 @@ def train():
 
   result_dir = FLAGS.train_dir + '/test_results'
   if not os.path.isdir(result_dir):
-      os.mkdir(result_dir)
+      os.makedirs(result_dir)
 
   current_taging_valid_out_file = result_dir + '/taging.valid.hyp.txt'
   current_taging_test_out_file = result_dir + '/taging.test.hyp.txt'
